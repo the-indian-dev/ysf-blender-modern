@@ -14,16 +14,23 @@ import os
 
 class Log:
     def __init__(self, filename="logYSFS.txt", turnedON=False):
-        self.f = open(filename, "w+")
+        # self.f = open(filename, "w+")
+        # turned off to prevent permission issues in blender.
         self.turnedON = turnedON
 
     def write(self, text):
+        print(time.strftime("%H:%M:%S: ", time.localtime()) + text + "\n")
+        """
         if self.turnedON:
             self.f.write(time.strftime("%H:%M:%S: ", time.localtime()) + text + "\n")
             self.f.flush()
+        """
 
     def close(self):
+        pass
+        """
         self.f.close()
+        """
 
 class Error:
     def __init__(self, lineNB=0):
